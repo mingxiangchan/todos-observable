@@ -1,6 +1,14 @@
-<ul>
-  <li *ngFor="let item of items">
-    {{item}}
-  </li>
-</ul>
-<button [click]="addTodos()">Click Me</button>
+<div class='list'>
+  <button (click)="addTodos()">Change Me</button>
+  <p>{{name}}</p>
+  <p>{{age}}</p>
+  <p>{{isStudent}}</p>
+  <p>{{company.name}}</p>
+
+  <ul>
+    <li *ngFor="let item of items">
+      {{item}}
+    </li>
+  </ul>
+
+</div>

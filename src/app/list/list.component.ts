@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { TodosService } from '../todos.service'
 
 @Component({
   selector: 'app-list',
@@ -6,11 +7,23 @@ import { Component, OnInit } from '@angular/core'
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  items = []
+  items: string[] = []
+  name: string = null
+  age: number = null
+  isStudent: boolean = false
+  company = {}
 
-  constructor() {}
+  constructor(private service: TodosService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.items = this.service.getItems()
+    this.name = this.service.getName()
+    this.age = this.service.getAge()
+    this.isStudent = this.service.getIsStudent()
+    this.company = this.service.getCompany()
+  }
 
-  addTodos() {}
+  addTodos() {
+    this.service.change()
+  }
 }
